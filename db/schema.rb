@@ -11,11 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150909145613) do
+ActiveRecord::Schema.define(version: 20150925165936) do
 
   create_table "users", force: :cascade do |t|
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.string   "provider"
     t.string   "uid"
     t.string   "name"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20150909145613) do
     t.text     "access_token"
     t.text     "refresh_token"
     t.text     "credentials"
+    t.string   "lastfm_username"
   end
 
 end
