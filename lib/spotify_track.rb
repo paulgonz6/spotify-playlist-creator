@@ -13,7 +13,7 @@ module SpotifyTrack
   end
 
   def self.spotify_tracks_array
-    @array = RSpotify::Track.search("#{@current_track[:name].gsub(/[^A-Za-z0-9 ]/, '')}", limit: 50)
+    @array = RSpotify::Track.search("#{@current_track[:name].gsub(/'/, '')}", limit: 50)
   end
 
   def self.get_spotify_version_of_track
