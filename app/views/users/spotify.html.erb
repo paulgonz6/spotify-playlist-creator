@@ -1,0 +1,11 @@
+<h2>Playlist</h2>
+<h4><%= @playlist.name %></h4>
+
+<h2>Most Recent Track Played on Spotify</h2>
+<h4><%= @current_song["name"] %></h4>
+
+<button>
+  <a href="/add_song_to_playlist/<%= @current_song["name"] %>/<%= @playlist.name %>">
+    Add This Song to <%= @playlist.name %>
+  </a>
+</button>
