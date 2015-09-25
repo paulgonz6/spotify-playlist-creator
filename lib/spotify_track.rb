@@ -3,12 +3,12 @@ module SpotifyTrack
   def self.grab(user)
     @spotify_user = RSpotify::User.new(user.credentials)
     @lastfm = Lastfm.new(ENV['lastfm_key'],ENV['lastfm_secret_key'])
-    get_current_track
+    get_current_track(user)
     get_spotify_version_of_track if @current_track
   end
 
-  def self.get_current_track
-    current_track = @lastfm.user.get_recent_tracks('paulgonz6').detect { |s| s["nowplaying"] == "true" }
+  def self.get_current_track(user)
+    current_track = @lastfm.user.get_recent_tracks(user.lastfm_username).detect { |s| s["nowplaying"] == "true" }
     @current_track = @lastfm.track.get_info(:track => current_track["name"], :artist => current_track["artist"]["content"]).with_indifferent_access if current_track
   end
 
